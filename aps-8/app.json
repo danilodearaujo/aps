@@ -1,8 +1,8 @@
 {
   "name": "Iniciando no heroku com python",
   "description": "Teste para aps",
-  "image": "danilodearaujo/aps-8",
-  "repository": "https://github.com/danilodearaujo/aps-8.git",
+  "image": "danilodearaujo/aps",
+  "repository": "https://github.com/danilodearaujo/aps.git",
   "keywords": ["python", "django" ],
   "addons": [ "heroku-postgresql" ],
   "environments": {
