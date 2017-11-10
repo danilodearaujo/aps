@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Python Getting Started on Heroku</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <style type="text/css">
+    .jumbotron {
+        background: #532f8c;
+        color: white;
+        padding-bottom: 80px
+    }
+    .jumbotron .btn-primary {
+        background: #845ac7;
+        border-color: #845ac7
+    }
+    .jumbotron .btn-primary:hover {
+        background: #7646c1
+    }
+    .jumbotron p {
+        color: #d9ccee;
+        max-width: 75%;
+        margin: 1em auto 2em
+    }
+    .navbar+.jumbotron {
+        margin-top: -20px
+    }
+    .jumbotron .lang-logo {
+        display: block;
+        background: #b01302;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        border: 2px solid white
+    }
+    .jumbotron .lang-logo img {
+        max-width: 100%
+    }
+    body {
+      font-family:Arial;
+    }
+  	.TabControl {
+      width:100%;
+      overflow:hidden;
+      height:400px
+    }
+  	.TabControl #header {
+      width:100%;
+      border: solid 1px;
+      overflow:hidden;
+      cursor:hand
+    }
+  	.TabControl #content {
+      width:100%;
+      border: solid 1px;
+      overflow:hidden;
+      height:100%;
+    }
+  	.TabControl .abas {
+      display:inline;
+    }
+  	.TabControl .abas li {
+      float:left
+    }
+  	.aba {
+      width:100px;
+      height:30px;
+      border:solid 1px;
+      border-radius:5px 5px 0 0;
+  		text-align:center;
+      padding-top:5px;
+      background:#3A5FCD
+    }
+  	.ativa {
+      width:100px;
+      height:30px;
+      border:solid 1 px;
+      border-radius:5px 5px 0 0;
+  		text-align:center;
+      padding-top:5px;
+      background:#27408B;
+    }
+  	.ativa span, .selected span {
+      color:#fff;
+    }
+  	.TabControl #content {
+      background:#27408B;
+    }
+  	.TabControl .conteudo {
+      width:100%;
+      background:#27408B;
+      display:none;
+      height:100%;
+      color:#fff;
+    }
+  	.selected {
+      width:100px;
+      height:30px;
+      border:solid 1 px;
+      border-radius:5px 5px 0 0;
+  		text-align:center;
+      padding-top:5px;
+      background:#27408B;
+    }
+
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            function call_counter(url, pk) {
+                window.open(url);
+                $.get('YOUR_VIEW_HERE/'+pk+'/', function (data) {
+                    alert("counter updated!");
+                });
+            }
+        </script>
+        <script type="text/javascript">
+         $(document).ready(function(){
+           $("#content div:nth-child(1)").show();
+           $(".abas li:first div").addClass("selected");
+           $(".aba").click(function(){
+             $(".aba").removeClass("selected");
+             $(this).addClass("selected");
+             var indice = $(this).parent().index();
+             indice++;
+             $("#content div").hide();
+             $("#content div:nth-child("+indice+")").show();
+           });
+
+           $(".aba").hover(
+             function(){$(this).addClass("ativa")},
+             function(){$(this).removeClass("ativa")}
+           );
+         });
+        </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+      </li>
+      <li>
+        <a href="https://devcenter.heroku.com/articles/how-heroku-works"><span class="glyphicon glyphicon-user"></span> How Heroku Works</a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Getting Started Guides <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-clojure">Getting Started with Clojure on Heroku</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-scala">Getting Started with Scala on Heroku</a></li>
+            <li class="divider"></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-heroku-and-connect-without-local-dev">Getting Started on Heroku with Heroku Connect</a></li>
+            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-jruby">Getting Started with Ruby on Heroku (Microsoft Windows)</a></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-right">
+        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev Center</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="{% static 'lang-logo.png'%}">
+    </a>
+    <h1>Voando no web service python</h1>
+    </div>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <div class="TabControl">
+          <div id="header">
+          <ul class="abas">
+            <li>
+              <div class="aba">
+                <span>Trânsito</span>
+              </div>
+            </li>
+            <li>
+              <div class="aba">
+                <span>Alagamentos</span>
+              </div>
+            </li>
+            <li>
+              <div class="aba">
+                <span>Poluição do Ar</span>
+              </div>
+            </li>
+          </ul>
+          </div>
+          <div id="content">
+          <div class="conteudo">
+            <body>
+              <iframe id="transito" src="http://cetsp1.cetsp.com.br/monitransmapa/agora/" width="100%" height="100%"></iframe>
+            </body>
+          </div>
+          <div class="conteudo">
+            <iframe src="https://www.cgesp.org/v3/estacoes-meteorologicas.jsp"></iframe>
+          </div>
+          <div class="conteudo">
+            <iframe src="http://aqicn.org/map/saopaulo/pt/"></iframe>
+          </div>
+          </div>
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
